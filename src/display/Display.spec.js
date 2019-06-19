@@ -2,7 +2,8 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import Display from './Display.js';
-
+import Dashboard from '../dashboard/Dashboard'
+import '@testing-library/react/cleanup-after-each';
 
 
 describe('Display', () => {
@@ -20,10 +21,30 @@ describe('Display', () => {
 
     it('displays if gate is open/closed and if it is locked/unlocked', () => {
         const {getByTestId} = render(<Display />)
-        const closedOpen = getByTestId(/closedopen/i);
-        const lockedUnlocked = getByTestId(/lockedunlocked/i)
+        const closedOpen = getByTestId(/123/i);
+        const lockedUnlocked = getByTestId(/abc/i)
         expect(lockedUnlocked).toBeTruthy();
         expect(closedOpen).toBeTruthy();
+    });
+
+    it("displays 'Closed' if the `closed` prop is `true`", () => {
+        const {getByText} = render(<Display closed={true} />)
+        expect(getByText(/Closed/i)).toBeTruthy();
+    });
+    
+   
+    it("and 'Open' if otherwise", () => {
+        const {getByText} = render(<Display closed={false} />)
+        expect(getByText(/Open/i)).toBeTruthy();
+    });
+
+    it('displays Locked if the locked prop is true', () => {
+        const {getByText} = render(<Display locked={true} />)
+        expect(getByText(/Locked/)).toBeTruthy();
+    });
+    it("Unlocked if otherwise", () => {
+        const {getByText} = render(<Display locked={false} />)
+        expect(getByText(/Unlocked/)).toBeTruthy();
     });
 });
 
@@ -32,9 +53,9 @@ describe('Display', () => {
 
 /*
 - defaults to `unlocked` and `open` [x]
-- displays if gate is open/closed and if it is locked/unlocked []
-- displays 'Closed' if the `closed` prop is `true` and 'Open' if otherwise []
-- displays 'Locked' if the `locked` prop is `true` and 'Unlocked' if otherwise []
+- displays if gate is open/closed and if it is locked/unlocked [x]
+- displays 'Closed' if the `closed` prop is `true` and 'Open' if otherwise [x]
+- displays 'Locked' if the `locked` prop is `true` and 'Unlocked' if otherwise [x]
 - when `locked` or `closed` use the `red-led` class []
 - when `unlocked` or `open` use the `green-led` class []
 */
