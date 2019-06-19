@@ -23,6 +23,6 @@ describe('Display', () => {
 
 /*
 - defaults to `unlocked` and `open` [x]
-- cannot be closed or opened if it is locked []
+
 
 */

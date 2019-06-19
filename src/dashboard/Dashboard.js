@@ -25,6 +25,8 @@ class Dashboard extends React.Component {
     );
   }
 
+  
+
   toggleLocked = () => {
     this.setState(prev => ({ locked: !prev.locked }));
   };

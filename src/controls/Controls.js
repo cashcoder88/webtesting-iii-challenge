@@ -15,5 +15,6 @@ const Controls = props => {
   );
 };
 
+// cannot be closed or opened if it is locked []
 export default Controls;
 
