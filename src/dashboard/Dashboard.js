@@ -37,8 +37,8 @@ class Dashboard extends React.Component {
 }
 
 /* 
-- defaults to `unlocked` and `open` []
-- cannot be closed or opened if it is locked []
+- defaults to `unlocked` and `open` [x]
+- cannot be closed or opened if it is locked [x]
 */
 
 export default Dashboard;
