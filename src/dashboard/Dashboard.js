@@ -25,6 +25,8 @@ class Dashboard extends React.Component {
     );
   }
 
+  
+
   toggleLocked = () => {
     this.setState(prev => ({ locked: !prev.locked }));
   };
@@ -33,5 +35,10 @@ class Dashboard extends React.Component {
     this.setState(prev => ({ closed: !prev.closed }));
   };
 }
+
+/* 
+- defaults to `unlocked` and `open` [x]
+- cannot be closed or opened if it is locked [x]
+*/
 
 export default Dashboard;
