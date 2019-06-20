@@ -46,14 +46,14 @@ describe('Display', () => {
         const {getByText} = render(<Display locked={false} />)
         expect(getByText(/Unlocked/)).toBeTruthy();
     });
-    it('when `locked` or `closed` use the `red-led` class ', () => {
+    it('when `unlocked` or `open` use the `green-led` class ', () => {
         // const {getByText} = render(<Display locked={true} closed={true}/>)
         // expect(getByText)
         const { container } = render(<Display locked={false} closed={false} />)
         const divs = container.getElementsByClassName('green-led')
         expect(divs.length).toBe(2)
     });
-    it('when `unlocked` or `open` use the `green-led` class', () => {
+    it('when `locked` or `closed` use the `red-led` class', () => {
         // const {getByText} = render(<Display locked={true} closed={true}/>)
         // expect(getByText)
         const { container } = render(<Display locked={true} closed={true} />)
@@ -71,5 +71,5 @@ describe('Display', () => {
 - displays 'Closed' if the `closed` prop is `true` and 'Open' if otherwise [x]
 - displays 'Locked' if the `locked` prop is `true` and 'Unlocked' if otherwise [x]
 - when `locked` or `closed` use the `red-led` class [x]
-- when `unlocked` or `open` use the `green-led` class [x]
+- when `unlocked` or `open` use the `green-led` class []
 */
